@@ -1,17 +1,15 @@
 ---
-
+import BaseLayout from '@layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Will Mangaroo | Product Manager Portfolio"
+  description="Product Manager portfolio featuring articles, videos, audio, and visuals focused on outcomes, clarity, and delivery."
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-bold">Welcome</h1>
+    <p class="mt-4 text-gray-600 dark:text-gray-400">
+      Portfolio site coming soon...
+    </p>
+  </div>
+</BaseLayout>
