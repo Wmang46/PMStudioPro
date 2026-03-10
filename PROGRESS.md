@@ -41,6 +41,28 @@
   - Import added to BaseLayout
 - **Notes:** Code review recommended follow-up improvements (h1/h4-h6 prose styles, strong/em styles, focus ring contrast audit) - non-blocking enhancements
 
+### ✅ Task 2.1: Configure Content Collections
+- **Commit:** 5ecf2d3
+- **Status:** Complete - spec compliant, code quality approved
+- **What was built:**
+  - Installed @astrojs/mdx v5.0.0 integration
+  - Content collection schema with Zod validation (article, audio, video types)
+  - Astro 6.x content loader API with glob pattern
+  - Content directory structure (src/content/hot-topics/)
+  - Build verified successful with empty collection
+- **Notes:** Correctly adapted for Astro 6.x breaking changes (config file location, new loader API)
+
+### ✅ Task 2.2: Migrate Priority Conflicts Article
+- **Commit:** 2c26bd5
+- **Status:** Complete - spec compliant, code quality approved
+- **What was built:**
+  - First content piece migrated to MDX format
+  - Complete article with 6 sections (Root Causes, Shared Framework, Trade-offs, etc.)
+  - Frontmatter with all required fields (featured, 4 tags, readTime)
+  - Zod validation passed successfully
+  - Build verified with content collection sync
+- **Notes:** Production-ready professional content, serves as template for future articles
+
 ---
 
 ## In Progress
@@ -49,21 +71,12 @@ None
 
 ---
 
-## Remaining Tasks (14 total)
+## Remaining Tasks (12 total)
 
 ### Chunk 1: Project Foundation
 ✅ Complete (3/3 tasks)
 
-### Chunk 2: Content Collection System (5 tasks)
-- [ ] Task 2.1: Configure Content Collections
-- [ ] Task 2.2: Migrate Priority Conflicts Article
-- [ ] Task 2.3: Migrate RICE Audio Content
-- [ ] Task 2.4: Migrate Why Stakeholders Ghost Content
-- [ ] Task 2.5: Copy Hero Image and Resume
-
-### Chunk 2: Content Collection System (5 tasks)
-- [ ] Task 2.1: Configure Content Collections
-- [ ] Task 2.2: Migrate Priority Conflicts Article
+### Chunk 2: Content Collection System (3 remaining)
 - [ ] Task 2.3: Migrate RICE Audio Content
 - [ ] Task 2.4: Migrate Why Stakeholders Ghost Content
 - [ ] Task 2.5: Copy Hero Image and Resume
@@ -119,4 +132,10 @@ None
   - Fixed 2 spec compliance issues
   - Code review approved with non-blocking recommendations
 - **Chunk 1 complete** (3/3 tasks)
-- Next: Task 2.1 (Configure Content Collections)
+- Completed Task 2.1 (Configure Content Collections)
+  - Adapted for Astro 6.x breaking changes
+- Completed Task 2.2 (Migrate Priority Conflicts Article)
+  - First content piece migrated successfully
+  - Production-ready professional content
+- Token usage: ~95k/200k (~105k remaining)
+- Next: Task 2.3 (Migrate RICE Audio Content)
