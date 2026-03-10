@@ -21,3 +21,7 @@ dist/
 
 # misc
 *.log
+
+# PowerShell transcripts (debugging artifacts)
+PSLogs/
+public/audio/PSLogs/
