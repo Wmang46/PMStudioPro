@@ -126,6 +126,17 @@
   - Complete homepage layout
 - **Notes:** Chunk 3 complete - full homepage functional
 
+### ✅ Task 4.1: Create Hot Topics Listing Page
+- **Commit:** 9eceab0
+- **Status:** Complete
+- **What was built:**
+  - ContentCard component with type badges, date, summary, tags
+  - Hot Topics listing page displaying all content
+  - Sorted by date (newest first)
+  - Responsive grid layout (md:2 cols, lg:3 cols)
+  - CTAs with type-specific text and icons
+- **Notes:** Build verified - 2 pages generated successfully
+
 ---
 
 ## In Progress

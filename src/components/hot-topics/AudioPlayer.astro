@@ -1,0 +1,21 @@
+---
+interface Props {
+  audioFile: string;
+  title: string;
+}
+
+const { audioFile, title } = Astro.props;
+---
+
+<div class="my-8 p-6 card">
+  <div class="flex items-center space-x-4">
+    <div class="text-4xl" aria-hidden="true">🎧</div>
+    <div class="flex-1">
+      <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{title}</p>
+      <audio controls class="w-full" preload="metadata">
+        <source src={audioFile} type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>

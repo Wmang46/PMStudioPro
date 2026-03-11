@@ -1,0 +1,35 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+import AudioPlayer from '@components/hot-topics/AudioPlayer.astro';
+
+export async function getStaticPaths() {
+  const hotTopics = await getCollection('hot-topics');
+  return hotTopics.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'hot-topics'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentLayout
+  title={entry.data.title}
+  description={entry.data.summary}
+  type={entry.data.type}
+  date={entry.data.date}
+  tags={entry.data.tags}
+  readTime={entry.data.readTime}
+>
+  {entry.data.type === 'audio' && entry.data.audioFile && (
+    <AudioPlayer audioFile={entry.data.audioFile} title={entry.data.title} />
+  )}
+
+  <Content />
+</ContentLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  type: 'article' | 'audio' | 'video';
+  date: Date;
+  tags: string[];
+  readTime?: string;
+}
+
+const { title, description, type, date, tags, readTime } = Astro.props;
+
+const badgeClass = {
+  article: 'badge-article',
+  audio: 'badge-audio',
+  video: 'badge-video',
+}[type];
+---
+
+<BaseLayout title={`${title} | Will Mangaroo`} description={description}>
+  <article class="content-wrapper py-12">
+    <nav class="mb-8">
+      <a href="/hot-topics" class="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary">
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Hot Topics
+      </a>
+    </nav>
+
+    <header class="max-w-prose mx-auto mb-8">
+      <span class:list={['badge mb-4', badgeClass]}>
+        {type === 'article' && '📄'}
+        {type === 'audio' && '🎧'}
+        {type === 'video' && '📹'}
+        <span class="ml-1 capitalize">{type}</span>
+      </span>
+
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{title}</h1>
+
+      <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <time>{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        {readTime && <span>· {readTime}</span>}
+      </div>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        {tags.map(tag => (
+          <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+        ))}
+      </div>
+    </header>
+
+    <div class="prose max-w-prose mx-auto">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
