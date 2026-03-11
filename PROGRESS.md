@@ -74,6 +74,26 @@
   - Build verified with 2 content items (1 article + 1 audio)
 - **Notes:** Duration kept as plan spec value (15:23); Fixed PROGRESS.md duplicate entry
 
+### ✅ Task 2.4: Migrate Why Stakeholders Ghost Content
+- **Commits:** 2ab0636, 1425973 (critical fix)
+- **Status:** Complete - spec compliant, code quality approved after fix
+- **What was built:**
+  - Second audio content migrated (29MB MP3 file)
+  - Audio file copied to public/audio/stakeholders-ghost.mp3
+  - MDX with audio frontmatter (featured: false)
+  - Show notes with Why They Ghost, How to Fix It, The Pattern
+  - Build verified with 3 content items (1 article + 2 audio)
+- **Notes:** Fixed critical issue - removed PowerShell log files from repository and added to .gitignore
+
+### ✅ Task 2.5: Copy Hero Image and Resume
+- **Commit:** a8f1d43
+- **Status:** Complete - hero image copied, resume PDF pending manual conversion
+- **What was built:**
+  - Created assets directory structure (src/assets/images/, public/resume/)
+  - Hero image copied to src/assets/images/hero.jpg (646KB)
+  - Resume DOCX located, PDF conversion pending (manual step per plan)
+- **Notes:** Resume PDF requires manual conversion from DOCX using Word/Google Docs/converter - expected manual step
+
 ---
 
 ## In Progress
@@ -82,14 +102,13 @@ None
 
 ---
 
-## Remaining Tasks (11 total)
+## Remaining Tasks (9 total)
 
 ### Chunk 1: Project Foundation
 ✅ Complete (3/3 tasks)
 
-### Chunk 2: Content Collection System (2 remaining)
-- [ ] Task 2.4: Migrate Why Stakeholders Ghost Content
-- [ ] Task 2.5: Copy Hero Image and Resume
+### Chunk 2: Content Collection System
+✅ Complete (5/5 tasks - resume PDF pending manual conversion)
 
 ### Chunk 3: Homepage (3 tasks)
 - [ ] Task 3.1: Create Hero Component
@@ -145,9 +164,14 @@ None
 - Completed Task 2.1 (Configure Content Collections)
   - Adapted for Astro 6.x breaking changes
 - Completed Task 2.2 (Migrate Priority Conflicts Article)
-  - First content piece migrated successfully
 - Completed Task 2.3 (Migrate RICE Audio Content)
-  - First audio content migrated (14MB MP3)
   - Fixed PROGRESS.md duplicate entry
-- Token usage: ~106k/200k (~94k remaining)
-- Next: Task 2.4 (Migrate Why Stakeholders Ghost Content)
+- Completed Task 2.4 (Migrate Why Stakeholders Ghost Content)
+  - Fixed critical security issue (removed PowerShell logs)
+- Completed Task 2.5 (Copy Hero Image and Resume)
+  - Hero image copied (646KB)
+  - Resume PDF pending manual conversion
+- **Chunk 2 complete** (5/5 tasks)
+- **Total: 8 tasks complete, 9 remaining**
+- Token usage: ~120k/200k (~80k remaining)
+- Next: Chunk 3 (Homepage components)
