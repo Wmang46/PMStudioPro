@@ -94,6 +94,17 @@
   - Resume DOCX located, PDF conversion pending (manual step per plan)
 - **Notes:** Resume PDF requires manual conversion from DOCX using Word/Google Docs/converter - expected manual step
 
+### ✅ Task 3.1: Create Hero Component
+- **Commit:** 32978b9
+- **Status:** Complete
+- **What was built:**
+  - Hero section with responsive grid layout
+  - Astro Image component with optimization (645KB → 6-68KB WebP)
+  - Stats section (Strength, Focus, Outputs)
+  - CTAs for Hot Topics and About pages
+  - Updated homepage to use Hero component
+- **Notes:** Image optimization working perfectly, generated 4 responsive sizes
+
 ---
 
 ## In Progress
@@ -102,13 +113,17 @@ None
 
 ---
 
-## Remaining Tasks (9 total)
+## Remaining Tasks (8 total)
 
 ### Chunk 1: Project Foundation
 ✅ Complete (3/3 tasks)
 
 ### Chunk 2: Content Collection System
 ✅ Complete (5/5 tasks - resume PDF pending manual conversion)
+
+### Chunk 3: Homepage (2 remaining)
+- [ ] Task 3.2: Create Featured Content Component
+- [ ] Task 3.3: Create Value Propositions Component
 
 ### Chunk 3: Homepage (3 tasks)
 - [ ] Task 3.1: Create Hero Component
