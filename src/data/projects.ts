@@ -11,69 +11,69 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Digital Channels & Agile Delivery",
+    title: "Digital Banking Product Portfolio",
     company: "Woodforest National Bank",
-    role: "Senior Business Analyst",
+    role: "Product Manager",
     timeline: "Mar 2018 – Oct 2025",
-    description: "Led discovery, requirements, and Agile delivery across six banking applications including IVR modernization, fraud-prevention workflows, and digital channel improvements.",
+    description: "Owned product roadmap and backlog prioritization across six banking products spanning IVR, fraud prevention, and digital channels. Drove discovery, defined OKRs, and led cross-functional delivery from ideation through launch.",
     outcomes: [
-      "Reduced operating costs by 35% by leading IVR redesign that eliminated 2M+ monthly agent calls",
-      "Lowered refund and risk exposure by 60% through fraud-prevention workflow enhancements, reducing fraud/error rates by 75%",
-      "Improved delivery velocity by 25% across six applications using Azure DevOps and refined Agile ceremonies",
-      "Cut development-related defects by 50% by tightening acceptance criteria and strengthening sprint planning",
-      "Shortened time-to-market by 30% by clarifying ownership and streamlining delivery across a team of 5",
-      "Strengthened security posture by 30% guiding Open Banking API integrations, maintaining 100% PCI compliance"
+      "Reduced operating costs by 35% by defining the product vision for an IVR modernization that eliminated 2M+ monthly agent calls",
+      "Cut risk exposure by 60% by prioritizing fraud-prevention features on the roadmap, reducing fraud/error rates by 75%",
+      "Increased team velocity by 25% by establishing sprint rituals, refining the backlog, and clarifying product ownership across six products",
+      "Reduced defect escape rate by 50% by tightening acceptance criteria and driving a quality-first definition of done",
+      "Shortened time-to-market by 30% by streamlining the delivery pipeline and removing blockers for a team of 5",
+      "Maintained 100% PCI compliance while guiding Open Banking API integration strategy and platform architecture decisions"
     ],
-    skills: ["Agile Scrum", "Backlog Prioritization", "Stakeholder Management", "KPI Tracking"],
-    technologies: ["Azure DevOps", "IVR Systems", "API Integrations", "SQL"]
+    skills: ["Product Roadmapping", "Backlog Prioritization", "OKRs & KPIs", "Stakeholder Alignment"],
+    technologies: ["Azure DevOps", "IVR Platform", "Open Banking APIs", "SQL"]
   },
   {
-    title: "Core Banking Migration & Platform Rationalization",
+    title: "Core Platform Migration & New Product Launch",
     company: "Woodforest National Bank",
-    role: "Senior Business Analyst",
+    role: "Senior Business Analyst / Product Owner",
     timeline: "May 2007 – Mar 2018",
-    description: "Led end-to-end FIS core-banking migration and designed a Customer Information System from the ground up, enabling branch staff to perform account inquiries without relying on expensive core licenses.",
+    description: "Led product strategy for an end-to-end FIS core banking migration and owned the vision, design, and launch of a new Customer Information System — a greenfield product that replaced expensive core licensing with a lightweight, purpose-built solution for 500+ daily branch users.",
     outcomes: [
-      "Migrated 500K+ accounts with 99.9% data accuracy across Customer Information System, Refunds, IVR, and Branch Services",
-      "Avoided $35K in recurring costs by retiring an internal Foreign Deposit solution",
-      "Improved transaction processing time by 33% with a new Customer Information System",
-      "Accelerated stakeholder sign-off by 45% through improved gap analysis and standardized documentation",
-      "Decreased defects by 20% by translating business needs into enterprise requirements, use cases, and UML artifacts",
-      "Increased delivery predictability by owning backlog refinement and coordinating UAT across business and technical partners"
+      "Shipped a zero-to-one product (CIS) that improved transaction processing time by 33% and eliminated core licensing dependency",
+      "Migrated 500K+ accounts with 99.9% data accuracy by defining acceptance criteria and orchestrating cross-functional delivery",
+      "Avoided $35K in recurring costs by making a build-vs-buy decision to retire an internal Foreign Deposit platform",
+      "Accelerated stakeholder alignment by 45% through structured discovery workshops and standardized product artifacts",
+      "Reduced defects by 20% by translating product vision into clear user stories, use cases, and testable acceptance criteria",
+      "Improved release predictability by owning backlog refinement, sprint planning, and go/no-go launch decisions"
     ],
-    skills: ["Requirements Analysis", "Process Mapping", "Data Validation", "UAT"],
-    technologies: ["FIS Core Banking", "SQL", "UML", "CIS"]
+    skills: ["Product Strategy", "0-to-1 Product Launch", "Build vs. Buy", "User Story Mapping"],
+    technologies: ["FIS Core Banking", "SQL", "CIS Platform"]
   },
   {
-    title: "Airline Catering Platform Reengineering",
+    title: "Airline Catering Platform Redesign",
     company: "Saggezza",
-    role: "Business Analyst",
+    role: "Business Analyst / Product Consultant",
     timeline: "May 2006 – Sep 2006",
-    description: "Reengineered an airline catering platform by redesigning workflows to align with logistics constraints, food safety requirements, and cost reduction goals.",
+    description: "Drove product discovery and redesign for an airline catering platform, identifying high-impact workflow optimizations and aligning cross-functional stakeholders around a prioritized delivery roadmap.",
     outcomes: [
-      "Increased operational efficiency by 38% through workflow redesign",
-      "Reduced project costs by $1.2M by identifying redundancies and process gaps",
-      "Finished 5 months ahead of schedule through scope control and rapid stakeholder decisions",
-      "Reduced cycle time by 10% by streamlining handoffs between business teams and engineering",
-      "Reduced misinterpretation and rework by 24% by facilitating JAD workshops with 11 stakeholders"
+      "Increased operational efficiency by 38% by redesigning end-to-end product workflows",
+      "Identified $1.2M in cost savings through opportunity mapping and redundancy elimination",
+      "Delivered 5 months ahead of schedule by maintaining ruthless scope discipline and fast decision cycles",
+      "Reduced handoff friction by 10% by streamlining the product delivery pipeline between business and engineering",
+      "Cut rework by 24% by facilitating cross-functional alignment workshops with 11 stakeholders"
     ],
-    skills: ["Process Reengineering", "JAD Facilitation", "Scope Control", "Stakeholder Alignment"],
+    skills: ["Product Discovery", "Workflow Optimization", "Scope Management", "Cross-functional Leadership"],
     technologies: []
   },
   {
-    title: "7-Eleven Mobile Ordering Terminal",
+    title: "7-Eleven Mobile Ordering Product",
     company: "NEC Display Solutions of America",
-    role: "Business Analyst",
+    role: "Business Analyst / Product Lead",
     timeline: "Sep 2004 – May 2006",
-    description: "Authored requirements and designed UI for a manager-facing mobile ordering terminal enabling real-time inventory visibility, sales velocity analysis, and data-driven purchase recommendations for 7-Eleven stores.",
+    description: "Sole product lead on a competitive-bid engagement to define, design, and deliver a manager-facing mobile product for 7-Eleven — enabling real-time inventory visibility, sales velocity analysis, and data-driven purchasing decisions on the sales floor.",
     outcomes: [
-      "Increased profit by 26% through new supply chain logic and ordering workflows",
-      "Increased stakeholder adoption by 45% with clear documentation and training materials",
-      "Improved release readiness and quality outcomes by 31% through validated requirements and acceptance criteria",
-      "Ensured SOX compliance with structured validation steps and audit-ready documentation",
-      "Won competitive bid due to strength and clarity of proposal; finished on time and $1.2M under budget"
+      "Drove 26% profit increase through new supply chain workflows and data-driven ordering features",
+      "Achieved 45% user adoption by defining intuitive UX patterns, onboarding flows, and training materials",
+      "Improved release quality by 31% by owning acceptance criteria, user validation, and go-to-market readiness",
+      "Won the competitive bid by translating 7-Eleven's strategic vision into a compelling, technically grounded product proposal",
+      "Delivered on time and $1.2M under budget while managing scope evolution across NEC, Microsoft, and 7-Eleven stakeholders"
     ],
-    skills: ["Requirements Elicitation", "UI/UX Design", "Prototyping", "Vendor Management"],
+    skills: ["Product Vision", "UX Strategy", "Competitive Positioning", "Multi-vendor Coordination"],
     technologies: ["Microsoft Analytics", "Mobile Platform", "POS Integration"]
   }
 ];

@@ -5,69 +5,69 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Business Analysis & Product",
+    category: "Product Strategy",
     skills: [
-      "Business Analysis",
-      "Product Management",
+      "Product Vision & Roadmapping",
       "Product Ownership",
-      "Requirements Analysis",
-      "Backlog Prioritization",
-      "Process Mapping"
+      "OKRs & KPIs",
+      "Backlog Prioritization (RICE, MoSCoW)",
+      "Build vs. Buy Decisions",
+      "Go-to-Market Readiness"
     ]
   },
   {
-    category: "Agile & Delivery",
+    category: "Discovery & Delivery",
+    skills: [
+      "Product Discovery",
+      "User Story Mapping",
+      "Acceptance Criteria",
+      "Sprint Planning & Retrospectives",
+      "Release Management",
+      "Launch Validation"
+    ]
+  },
+  {
+    category: "Agile & Frameworks",
     skills: [
       "Agile Scrum",
       "SAFe",
       "Kanban",
-      "Sprint Planning",
-      "Release Management",
-      "UAT Facilitation"
+      "Cross-functional Team Leadership",
+      "Agile Ceremonies",
+      "Continuous Improvement"
     ]
   },
   {
     category: "Domain Expertise",
     skills: [
       "Retail Banking",
-      "Contact Center Operations",
+      "Contact Center / IVR",
       "Fraud Prevention",
       "Core Systems Modernization",
-      "IVR Systems",
-      "Digital Platforms"
+      "Digital Platforms",
+      "Regulatory Compliance (PCI, SOX, AML)"
     ]
   },
   {
-    category: "Technical Skills",
+    category: "Technical Fluency",
     skills: [
-      "SQL",
-      "API Integrations",
+      "SQL & Data Analysis",
+      "API Strategy & Integration",
+      "Platform Architecture Decisions",
       "Azure DevOps",
-      "AD/Azure AD",
-      "Data Analysis",
-      "KPI Tracking"
+      "Data-driven Decision Making",
+      "KPI Dashboards & Reporting"
     ]
   },
   {
-    category: "Stakeholder & Communication",
+    category: "Stakeholder Management",
     skills: [
-      "Stakeholder Management",
-      "JAD Facilitation",
-      "Cross-functional Leadership",
       "Executive Communication",
-      "Gap Analysis",
-      "Documentation"
-    ]
-  },
-  {
-    category: "Tools & Methods",
-    skills: [
-      "Azure DevOps",
-      "Advanced Microsoft Office",
-      "UML",
-      "BPMN",
-      "Agile Ceremonies",
-      "Requirements Traceability"
+      "Cross-functional Alignment",
+      "Workshop Facilitation",
+      "Vendor & Partner Management",
+      "Conflict Resolution",
+      "Change Management"
     ]
   }
 ];
