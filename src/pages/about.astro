@@ -5,8 +5,8 @@ import { skillCategories } from '@/data/skills';
 ---
 
 <BaseLayout
-  title="About Will Mangaroo | Product Manager"
-  description="Learn about Will Mangaroo's approach to product management, projects, and skills."
+  title="About Will Mangaroo | Senior Business Analyst"
+  description="Senior Business Analyst with 15+ years delivering requirements, process improvements, and digital initiatives across retail banking, fraud prevention, and core systems modernization."
 >
   <div class="content-wrapper py-16 md:py-24">
     <!-- Introduction -->
@@ -22,26 +22,100 @@ import { skillCategories } from '@/data/skills';
 
       <div class="space-y-5 text-lg text-ink-muted leading-relaxed">
         <p>
-          I'm a Product Manager focused on clarity, outcomes, and delivery.
-          My approach combines rigorous discovery with pragmatic execution,
-          helping teams ship products that actually move the needle.
+          Business Analyst with 15+ years of experience delivering requirements, process improvements,
+          and digital initiatives across retail banking, contact center operations, fraud prevention,
+          and core systems modernization.
         </p>
         <p>
-          Whether it's aligning stakeholders, prioritizing competing demands,
-          or making tough trade-offs under constraints, I focus on creating
-          clarity and driving measurable results.
+          Known for converting stakeholder needs into clear delivery artifacts, measurable KPIs, and
+          release-ready outcomes that reduce cost, mitigate risk, and improve customer experience.
+          I use data analysis and KPI tracking to drive decisions and improve results.
+        </p>
+        <p>
+          At Woodforest National Bank, I led initiatives including IVR modernization, core banking
+          migrations, fraud-prevention workflows, and enterprise platform redesigns&mdash;delivering
+          measurable results such as eliminating over 2M monthly agent calls, reducing operating costs
+          by 35%, and migrating more than 500K accounts with 99.9% data accuracy.
+        </p>
+        <p>
+          Outside of work, I enjoy building systems that simplify complex problems and help teams
+          deliver with clarity and confidence.
         </p>
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Career Highlights -->
+    <section class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Impact</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
+        Career Highlights
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-7 animate-fade-up stagger-1">
+          <h3 class="font-display font-700 text-lg text-ink tracking-tight mb-3">
+            Core Migration & Cost Avoidance
+          </h3>
+          <p class="text-ink-muted text-[15px] leading-relaxed">
+            Led end-to-end FIS core migration, migrating 500K+ accounts with 99.9% data accuracy
+            and retiring legacy systems to avoid $35K in recurring costs.
+          </p>
+        </div>
+
+        <div class="card p-7 animate-fade-up stagger-2">
+          <h3 class="font-display font-700 text-lg text-ink tracking-tight mb-3">
+            Agile Delivery & Quality
+          </h3>
+          <p class="text-ink-muted text-[15px] leading-relaxed">
+            Raised velocity 25%, cut development defects 50%, and shortened time-to-market 30%
+            across six applications via Azure DevOps and refined ceremonies.
+          </p>
+        </div>
+
+        <div class="card p-7 animate-fade-up stagger-3">
+          <h3 class="font-display font-700 text-lg text-ink tracking-tight mb-3">
+            IVR Modernization
+          </h3>
+          <p class="text-ink-muted text-[15px] leading-relaxed">
+            Eliminated 2M+ monthly agent calls and cut operating costs by 35% through redesigned
+            voice workflows and AML-aligned routing.
+          </p>
+        </div>
+
+        <div class="card p-7 animate-fade-up stagger-4">
+          <h3 class="font-display font-700 text-lg text-ink tracking-tight mb-3">
+            Fraud Prevention & Risk Reduction
+          </h3>
+          <p class="text-ink-muted text-[15px] leading-relaxed">
+            Reduced refund and risk exposure by 60% and cut fraud/error rates by 75% through
+            KPI-driven prioritization and targeted workflow enhancements.
+          </p>
+        </div>
+
+        <div class="card p-7 md:col-span-2 animate-fade-up stagger-5">
+          <h3 class="font-display font-700 text-lg text-ink tracking-tight mb-3">
+            Customer Information System
+          </h3>
+          <p class="text-ink-muted text-[15px] leading-relaxed">
+            Designed and launched a CIS that improved transaction processing time by 33% and reduced
+            dependency on the core banking platform by defining data and workflow models with business
+            and technical partners.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
     <section class="mb-20">
       <div class="flex items-center gap-3 mb-8">
         <div class="accent-line"></div>
         <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Experience</span>
       </div>
       <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
-        Projects I've Worked On
+        Work Experience
       </h2>
 
       <div class="space-y-6">
@@ -102,7 +176,7 @@ import { skillCategories } from '@/data/skills';
 
       <div class="grid md:grid-cols-2 gap-6">
         {skillCategories.map((category, i) => (
-          <div class={`card p-7 animate-fade-up stagger-${Math.min(i + 1, 4)}`}>
+          <div class={`card p-7 animate-fade-up stagger-${Math.min(i + 1, 6)}`}>
             <h3 class="font-display font-700 text-xl text-ink tracking-tight mb-5">
               {category.category}
             </h3>
@@ -116,65 +190,77 @@ import { skillCategories } from '@/data/skills';
       </div>
     </section>
 
-    <!-- Resume CTA -->
+    <!-- Education & Certifications -->
     <section class="mb-20">
-      <div class="card card-glow relative overflow-hidden p-10 md:p-14 text-center">
-        <div class="absolute inset-0 bg-gradient-to-br from-accent/[0.06] via-transparent to-teal/[0.04] pointer-events-none" aria-hidden="true"></div>
-        <div class="relative space-y-5">
-          <h2 class="font-display font-700 text-2xl md:text-3xl text-ink tracking-tight">
-            Want the full picture?
-          </h2>
-          <p class="text-ink-muted text-lg">
-            Download my complete resume with detailed work history and accomplishments.
-          </p>
-          <a
-            href="/resume/william-mangaroo-resume.pdf"
-            download
-            class="btn-primary inline-flex mt-2"
-          >
-            Download Resume
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </a>
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Credentials</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
+        Education & Certifications
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-7 animate-fade-up stagger-1">
+          <h3 class="font-display font-700 text-xl text-ink tracking-tight mb-2">Education</h3>
+          <div class="mt-4">
+            <p class="text-ink font-semibold">University of Houston</p>
+            <p class="text-ink-muted text-[15px]">Computer and Information Sciences and Support Services</p>
+          </div>
+        </div>
+
+        <div class="card p-7 animate-fade-up stagger-2">
+          <h3 class="font-display font-700 text-xl text-ink tracking-tight mb-2">Certifications</h3>
+          <div class="mt-4 space-y-4">
+            <div>
+              <p class="text-ink font-semibold">SAFe Scrum Master</p>
+              <p class="text-ink-faint text-[13px] font-mono">Scaled Agile &middot; Jun 2020</p>
+            </div>
+            <div>
+              <p class="text-ink font-semibold">SAFe Product Owner / Product Manager</p>
+              <p class="text-ink-faint text-[13px] font-mono">Scaled Agile &middot; Jun 2020</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Contact CTA -->
     <section>
-      <div class="flex items-center gap-3 mb-8">
-        <div class="accent-line"></div>
-        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Testimonials</span>
-      </div>
-      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
-        What Others Say
-      </h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <blockquote class="card p-7 border-l-[3px] border-l-accent">
-          <p class="text-ink-muted italic leading-relaxed mb-5">
-            "Placeholder for LinkedIn recommendation #1. Visit LinkedIn to copy actual recommendations."
+      <div class="card card-glow relative overflow-hidden p-10 md:p-14 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent/[0.06] via-transparent to-teal/[0.04] pointer-events-none" aria-hidden="true"></div>
+        <div class="relative space-y-5">
+          <h2 class="font-display font-700 text-2xl md:text-3xl text-ink tracking-tight">
+            Let's Connect
+          </h2>
+          <p class="text-ink-muted text-lg max-w-xl mx-auto">
+            I enjoy connecting with other product and technology professionals.
+            Feel free to reach out.
           </p>
-          <footer class="text-sm">
-            <strong class="text-ink font-semibold">Name</strong>
-            <span class="text-ink-faint"> &middot; Title at Company</span>
-          </footer>
-        </blockquote>
-        <blockquote class="card p-7 border-l-[3px] border-l-teal">
-          <p class="text-ink-muted italic leading-relaxed mb-5">
-            "Placeholder for LinkedIn recommendation #2. Visit LinkedIn to copy actual recommendations."
-          </p>
-          <footer class="text-sm">
-            <strong class="text-ink font-semibold">Name</strong>
-            <span class="text-ink-faint"> &middot; Title at Company</span>
-          </footer>
-        </blockquote>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
+            <a
+              href="/contact"
+              class="btn-primary inline-flex"
+            >
+              Get in Touch
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/william-mangaroo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-ghost inline-flex"
+            >
+              LinkedIn Profile
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <p class="mt-5 text-sm text-ink-faint">
-        Replace placeholder testimonials with actual recommendations from
-        <a href="https://www.linkedin.com/in/william-mangaroo" class="text-accent hover:text-accent-light transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
-      </p>
     </section>
   </div>
 </BaseLayout>

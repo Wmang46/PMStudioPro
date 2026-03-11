@@ -5,45 +5,69 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: "Product Strategy",
+    category: "Business Analysis & Product",
     skills: [
-      "Product Vision & Roadmapping",
-      "Market Research & Analysis",
-      "Competitive Analysis",
-      "Feature Prioritization (RICE, MoSCoW)"
+      "Business Analysis",
+      "Product Management",
+      "Product Ownership",
+      "Requirements Analysis",
+      "Backlog Prioritization",
+      "Process Mapping"
     ]
   },
   {
-    category: "Stakeholder Management",
+    category: "Agile & Delivery",
     skills: [
+      "Agile Scrum",
+      "SAFe",
+      "Kanban",
+      "Sprint Planning",
+      "Release Management",
+      "UAT Facilitation"
+    ]
+  },
+  {
+    category: "Domain Expertise",
+    skills: [
+      "Retail Banking",
+      "Contact Center Operations",
+      "Fraud Prevention",
+      "Core Systems Modernization",
+      "IVR Systems",
+      "Digital Platforms"
+    ]
+  },
+  {
+    category: "Technical Skills",
+    skills: [
+      "SQL",
+      "API Integrations",
+      "Azure DevOps",
+      "AD/Azure AD",
+      "Data Analysis",
+      "KPI Tracking"
+    ]
+  },
+  {
+    category: "Stakeholder & Communication",
+    skills: [
+      "Stakeholder Management",
+      "JAD Facilitation",
       "Cross-functional Leadership",
       "Executive Communication",
-      "Conflict Resolution",
-      "Expectation Management"
+      "Gap Analysis",
+      "Documentation"
     ]
   },
   {
-    category: "Execution",
+    category: "Tools & Methods",
     skills: [
-      "Agile/Scrum",
-      "User Story Writing",
-      "Sprint Planning",
-      "Release Management"
-    ]
-  },
-  {
-    category: "Technical",
-    skills: [
-      "API Design",
-      "SQL",
-      "Data Analysis",
-      "A/B Testing"
-    ]
-  },
-  {
-    category: "Tools",
-    skills: [
-      "Jira", "Figma", "Amplitude", "Mixpanel", "Miro"
+      "Azure DevOps",
+      "Advanced Microsoft Office",
+      "UML",
+      "BPMN",
+      "Agile Ceremonies",
+      "Requirements Traceability"
     ]
   }
 ];
