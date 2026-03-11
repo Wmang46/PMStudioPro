@@ -1,0 +1,151 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { projects } from '@/data/projects';
+import { skillCategories } from '@/data/skills';
+---
+
+<BaseLayout
+  title="About Will Mangaroo | Product Manager"
+  description="Learn about Will Mangaroo's approach to product management, projects, and skills."
+>
+  <div class="content-wrapper py-12">
+    <!-- Introduction -->
+    <section class="max-w-3xl mx-auto mb-16">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        About Me
+      </h1>
+      <div class="prose prose-lg max-w-none">
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          I'm a Product Manager focused on clarity, outcomes, and delivery.
+          My approach combines rigorous discovery with pragmatic execution,
+          helping teams ship products that actually move the needle.
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300">
+          Whether it's aligning stakeholders, prioritizing competing demands,
+          or making tough trade-offs under constraints, I focus on creating
+          clarity and driving measurable results.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        Projects I've Worked On
+      </h2>
+      <div class="space-y-8">
+        {projects.map((project) => (
+          <article class="card p-8">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  {project.role} at {project.company}
+                </p>
+              </div>
+              <span class="mt-2 md:mt-0 text-sm text-gray-500 dark:text-gray-400">
+                {project.timeline}
+              </span>
+            </div>
+
+            <p class="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+
+            <div class="mb-4">
+              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Key Outcomes:</h4>
+              <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                {project.outcomes.map(outcome => <li>{outcome}</li>)}
+              </ul>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              {project.skills.map(skill => (
+                <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">
+                  {skill}
+                </span>
+              ))}
+              {project.technologies?.map(tech => (
+                <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        Skills & Expertise
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {skillCategories.map((category) => (
+          <div class="card p-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              {category.category}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map(skill => (
+                <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Resume Download -->
+    <section class="mb-16">
+      <div class="card p-8 text-center bg-gradient-to-br from-primary/5 to-accent/5">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          Want the full picture?
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Download my complete resume with detailed work history and accomplishments.
+        </p>
+        <a
+          href="/resume/william-mangaroo-resume.pdf"
+          download
+          class="btn-primary inline-block"
+        >
+          Download Resume (PDF)
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+        What Others Say
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <blockquote class="card p-6">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+            "Placeholder for LinkedIn recommendation #1. Visit https://www.linkedin.com/in/william-mangaroo to copy actual recommendations."
+          </p>
+          <footer class="text-sm">
+            <strong class="text-gray-900 dark:text-white">Name</strong>
+            <span class="text-gray-600 dark:text-gray-400"> · Title at Company</span>
+          </footer>
+        </blockquote>
+        <blockquote class="card p-6">
+          <p class="text-gray-700 dark:text-gray-300 italic mb-4">
+            "Placeholder for LinkedIn recommendation #2. Visit https://www.linkedin.com/in/william-mangaroo to copy actual recommendations."
+          </p>
+          <footer class="text-sm">
+            <strong class="text-gray-900 dark:text-white">Name</strong>
+            <span class="text-gray-600 dark:text-gray-400"> · Title at Company</span>
+          </footer>
+        </blockquote>
+      </div>
+      <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
+        Note: Replace placeholder testimonials with actual recommendations from <a href="https://www.linkedin.com/in/william-mangaroo" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+      </p>
+    </section>
+  </div>
+</BaseLayout>
