@@ -137,6 +137,17 @@
   - CTAs with type-specific text and icons
 - **Notes:** Build verified - 2 pages generated successfully
 
+### ✅ Task 4.2: Create Individual Content Pages
+- **Commit:** 6b80675
+- **Status:** Complete
+- **What was built:**
+  - AudioPlayer component with HTML5 audio controls
+  - ContentLayout with breadcrumb nav, type badges, metadata
+  - Dynamic [slug].astro route for all content pages
+  - Astro 6.x render() API integration
+  - 3 individual pages generated (priority-conflicts, rice-prioritization, stakeholders-ghost)
+- **Notes:** Fixed Astro 6.x compatibility - used entry.id instead of entry.slug, render() function instead of entry.render()
+
 ---
 
 ## In Progress
@@ -156,14 +167,8 @@ None
 ### Chunk 3: Homepage
 ✅ Complete (3/3 tasks)
 
-### Chunk 3: Homepage (3 tasks)
-- [ ] Task 3.1: Create Hero Component
-- [ ] Task 3.2: Create Featured Content Component
-- [ ] Task 3.3: Create Value Propositions Component
-
-### Chunk 4: Hot Topics Pages (2 tasks)
-- [ ] Task 4.1: Create Hot Topics Listing Page
-- [ ] Task 4.2: Create Individual Content Pages
+### Chunk 4: Hot Topics Pages
+✅ Complete (2/2 tasks)
 
 ### Chunk 5: About & Contact (3 tasks)
 - [ ] Task 5.1: Create About Page Data
@@ -214,7 +219,12 @@ None
   - Task 3.1: Hero component with image optimization
   - Task 3.2: Featured content display (3 items)
   - Task 3.3: Value propositions + CTA
-- **Total: 11 tasks complete, 6 remaining**
-- **Status: 3 full chunks complete, homepage fully functional**
-- Token usage: ~141k/200k (~59k remaining)
-- Next: Chunk 4 (Hot Topics Pages) or Chunk 5 (About/Contact)
+- **Chunk 4 complete** (2/2 tasks):
+  - Task 4.1: Hot Topics listing page with ContentCard component
+  - Task 4.2: Individual content pages with AudioPlayer, ContentLayout
+  - Fixed: Astro 6.x compatibility (entry.id, render() API)
+  - 5 pages built: homepage, listing, 3 content pages
+- **Total: 13 tasks complete, 6 remaining**
+- **Status: 4 full chunks complete, Hot Topics section fully functional**
+- Token usage: ~60k/200k (~140k remaining)
+- Next: Chunk 5 (About & Contact Pages) - 3 tasks
