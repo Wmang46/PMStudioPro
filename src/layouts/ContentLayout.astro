@@ -17,42 +17,60 @@ const badgeClass = {
   audio: 'badge-audio',
   video: 'badge-video',
 }[type];
+
+const typeLabel = {
+  article: 'Article',
+  audio: 'Audio',
+  video: 'Video',
+}[type];
 ---
 
 <BaseLayout title={`${title} | Will Mangaroo`} description={description}>
-  <article class="content-wrapper py-12">
-    <nav class="mb-8">
-      <a href="/hot-topics" class="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-primary">
-        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <article class="content-wrapper py-16 md:py-24">
+    <!-- Back nav -->
+    <nav class="mb-10 animate-fade-up">
+      <a href="/hot-topics" class="inline-flex items-center gap-2 text-sm font-medium text-ink-muted hover:text-accent transition-colors group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
         Back to Hot Topics
       </a>
     </nav>
 
-    <header class="max-w-prose mx-auto mb-8">
-      <span class:list={['badge mb-4', badgeClass]}>
-        {type === 'article' && '📄'}
-        {type === 'audio' && '🎧'}
-        {type === 'video' && '📹'}
-        <span class="ml-1 capitalize">{type}</span>
+    <!-- Article Header -->
+    <header class="max-w-prose mx-auto mb-12 space-y-6 animate-fade-up stagger-1">
+      <span class:list={['badge', badgeClass]}>
+        {typeLabel}
       </span>
 
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">{title}</h1>
+      <h1 class="font-display font-800 text-4xl md:text-5xl text-ink tracking-tight leading-[1.1]">
+        {title}
+      </h1>
 
-      <div class="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <div class="flex flex-wrap items-center gap-4 text-[13px] font-mono text-ink-faint tracking-wider">
         <time>{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-        {readTime && <span>· {readTime}</span>}
+        {readTime && (
+          <>
+            <span class="w-1 h-1 rounded-full bg-ink-faint" aria-hidden="true"></span>
+            <span>{readTime}</span>
+          </>
+        )}
       </div>
 
-      <div class="mt-4 flex flex-wrap gap-2">
+      <div class="flex flex-wrap gap-2 pt-2">
         {tags.map(tag => (
-          <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full">{tag}</span>
+          <span class="tag">{tag}</span>
         ))}
+      </div>
+
+      <!-- Divider -->
+      <div class="pt-4">
+        <div class="w-full h-px bg-gradient-to-r from-accent/30 via-ink-ghost to-transparent"></div>
       </div>
     </header>
 
-    <div class="prose max-w-prose mx-auto">
+    <!-- Content -->
+    <div class="prose max-w-prose mx-auto animate-fade-up stagger-2">
       <slot />
     </div>
   </article>

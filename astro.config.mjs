@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://willmangaroo.com',
+  site: 'https://pmstudiopro.com',
 
   vite: {
     plugins: [tailwindcss()]

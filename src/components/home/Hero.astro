@@ -3,71 +3,84 @@ import { Image } from 'astro:assets';
 import heroImage from '@assets/images/hero.jpg';
 ---
 
-<section class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-  <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Hero Image -->
-      <div class="order-2 lg:order-1">
-        <div class="relative">
-          <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20 rounded-2xl blur-2xl" aria-hidden="true"></div>
-          <Image
-            src={heroImage}
-            alt="William Mangaroo - Product Manager"
-            class="relative rounded-2xl shadow-2xl w-full"
-            widths={[400, 600, 800]}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </div>
-      </div>
+<section class="relative overflow-hidden">
+  <!-- Accent glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-accent/[0.07] rounded-full blur-[150px] pointer-events-none" aria-hidden="true"></div>
+
+  <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
       <!-- Hero Content -->
-      <div class="order-1 lg:order-2 space-y-8">
-        <!-- Pill -->
-        <div class="inline-flex items-center px-4 py-2 bg-primary/10 dark:bg-primary/20 rounded-full">
-          <span class="text-sm font-medium text-primary">
-            Portfolio • Articles • Audio • Visuals
-          </span>
+      <div class="space-y-8 animate-fade-up">
+        <!-- Monospace label -->
+        <div class="flex items-center gap-3">
+          <div class="accent-line"></div>
+          <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Portfolio</span>
         </div>
 
         <!-- Title -->
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-          Explore product thinking in action
+        <h1 class="font-display font-800 text-[clamp(2.5rem,4.8vw,3.75rem)] leading-[1.1] tracking-[-0.03em] text-ink">
+          Explore product thinking <span class="text-accent">in action.</span>
         </h1>
 
         <!-- Subtitle -->
-        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-          A small, high-signal library of how I work: discovery, prioritization, trade-offs, and delivery.
-          Backed by real artifacts and source links.
+        <p class="text-lg md:text-xl text-ink-muted leading-relaxed max-w-[48ch]">
+          A small, high-signal library of how I work: discovery, prioritization, trade-offs, and delivery. Backed by real artifacts and source links.
         </p>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-6 py-6 border-y border-gray-200 dark:border-gray-800">
-          <div>
-            <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Strength</dt>
-            <dd class="mt-1 text-base font-semibold text-gray-900 dark:text-white">Discovery → Delivery</dd>
-          </div>
-          <div>
-            <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Focus</dt>
-            <dd class="mt-1 text-base font-semibold text-gray-900 dark:text-white">Clarity + outcomes</dd>
-          </div>
-          <div>
-            <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Outputs</dt>
-            <dd class="mt-1 text-base font-semibold text-gray-900 dark:text-white">Stories, specs, demos</dd>
-          </div>
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+          <a href="/hot-topics" class="btn-primary">
+            Explore Hot Topics
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="/about" class="btn-ghost">
+            How I Work
+          </a>
         </div>
 
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/hot-topics" class="btn-primary text-center">
-            Explore Hot Topics
-          </a>
-          <a href="/about" class="btn-ghost text-center">
-            View Projects
-          </a>
+        <!-- Stats Row -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-ink-ghost animate-fade-up stagger-3">
+          <div class="space-y-1">
+            <dt class="text-[12px] font-mono text-ink-faint tracking-wider uppercase">Strength</dt>
+            <dd class="text-[15px] font-semibold text-ink">Discovery → Delivery</dd>
+          </div>
+          <div class="space-y-1">
+            <dt class="text-[12px] font-mono text-ink-faint tracking-wider uppercase">Focus</dt>
+            <dd class="text-[15px] font-semibold text-ink">Clarity + Outcomes</dd>
+          </div>
+          <div class="space-y-1">
+            <dt class="text-[12px] font-mono text-ink-faint tracking-wider uppercase">Outputs</dt>
+            <dd class="text-[15px] font-semibold text-ink">Stories, Specs, Demos</dd>
+          </div>
         </div>
       </div>
+
+      <!-- Hero Image -->
+      <div class="animate-fade-up stagger-2">
+        <div class="relative group">
+          <!-- Glow behind image -->
+          <div class="absolute -inset-4 bg-gradient-to-tr from-accent/20 via-teal/10 to-accent/5 rounded-[20px] blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700" aria-hidden="true"></div>
+
+          <!-- Image container -->
+          <div class="relative rounded-2xl overflow-hidden border border-ink-ghost shadow-card-hover">
+            <Image
+              src={heroImage}
+              alt="William Mangaroo - Product Manager"
+              class="w-full h-auto block"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 100vw, 45vw"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <!-- Gradient overlay at bottom -->
+            <div class="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-surface-deep/60 to-transparent pointer-events-none" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

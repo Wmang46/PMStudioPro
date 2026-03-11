@@ -8,19 +8,25 @@ import { skillCategories } from '@/data/skills';
   title="About Will Mangaroo | Product Manager"
   description="Learn about Will Mangaroo's approach to product management, projects, and skills."
 >
-  <div class="content-wrapper py-12">
+  <div class="content-wrapper py-16 md:py-24">
     <!-- Introduction -->
-    <section class="max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+    <section class="max-w-3xl mb-20 animate-fade-up">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">About</span>
+      </div>
+
+      <h1 class="font-display font-800 text-4xl md:text-5xl text-ink tracking-tight mb-8">
         About Me
       </h1>
-      <div class="prose prose-lg max-w-none">
-        <p class="text-lg text-gray-700 dark:text-gray-300">
+
+      <div class="space-y-5 text-lg text-ink-muted leading-relaxed">
+        <p>
           I'm a Product Manager focused on clarity, outcomes, and delivery.
           My approach combines rigorous discovery with pragmatic execution,
           helping teams ship products that actually move the needle.
         </p>
-        <p class="text-lg text-gray-700 dark:text-gray-300">
+        <p>
           Whether it's aligning stakeholders, prioritizing competing demands,
           or making tough trade-offs under constraints, I focus on creating
           clarity and driving measurable results.
@@ -29,46 +35,54 @@ import { skillCategories } from '@/data/skills';
     </section>
 
     <!-- Projects -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+    <section class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Experience</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
         Projects I've Worked On
       </h2>
-      <div class="space-y-8">
-        {projects.map((project) => (
-          <article class="card p-8">
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+
+      <div class="space-y-6">
+        {projects.map((project, i) => (
+          <article class={`card p-8 md:p-10 animate-fade-up stagger-${Math.min(i + 1, 6)}`}>
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-5">
               <div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 class="font-display font-700 text-2xl text-ink tracking-tight">
                   {project.title}
                 </h3>
-                <p class="text-gray-600 dark:text-gray-400">
+                <p class="mt-1 text-ink-muted">
                   {project.role} at {project.company}
                 </p>
               </div>
-              <span class="mt-2 md:mt-0 text-sm text-gray-500 dark:text-gray-400">
+              <span class="mt-2 md:mt-0 text-[12px] font-mono text-ink-faint tracking-wider uppercase">
                 {project.timeline}
               </span>
             </div>
 
-            <p class="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+            <p class="text-ink-muted leading-relaxed mb-6">{project.description}</p>
 
-            <div class="mb-4">
-              <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Key Outcomes:</h4>
-              <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                {project.outcomes.map(outcome => <li>{outcome}</li>)}
+            <div class="mb-6">
+              <h4 class="font-semibold text-ink text-sm uppercase tracking-wider mb-3">Key Outcomes</h4>
+              <ul class="space-y-2">
+                {project.outcomes.map(outcome => (
+                  <li class="flex items-start gap-3 text-ink-muted text-[15px]">
+                    <span class="mt-2 w-1.5 h-1.5 rounded-full bg-teal shrink-0" aria-hidden="true"></span>
+                    {outcome}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div class="flex flex-wrap gap-2">
               {project.skills.map(skill => (
-                <span class="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full">
+                <span class="px-3 py-1.5 text-[13px] font-medium bg-accent/10 text-accent-light rounded-md">
                   {skill}
                 </span>
               ))}
               {project.technologies?.map(tech => (
-                <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 rounded-full">
-                  {tech}
-                </span>
+                <span class="tag">{tech}</span>
               ))}
             </div>
           </article>
@@ -77,21 +91,24 @@ import { skillCategories } from '@/data/skills';
     </section>
 
     <!-- Skills -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+    <section class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Toolkit</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
         Skills & Expertise
       </h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        {skillCategories.map((category) => (
-          <div class="card p-6">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {skillCategories.map((category, i) => (
+          <div class={`card p-7 animate-fade-up stagger-${Math.min(i + 1, 4)}`}>
+            <h3 class="font-display font-700 text-xl text-ink tracking-tight mb-5">
               {category.category}
             </h3>
             <div class="flex flex-wrap gap-2">
               {category.skills.map(skill => (
-                <span class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded">
-                  {skill}
-                </span>
+                <span class="tag">{skill}</span>
               ))}
             </div>
           </div>
@@ -99,52 +116,64 @@ import { skillCategories } from '@/data/skills';
       </div>
     </section>
 
-    <!-- Resume Download -->
-    <section class="mb-16">
-      <div class="card p-8 text-center bg-gradient-to-br from-primary/5 to-accent/5">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Want the full picture?
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-6">
-          Download my complete resume with detailed work history and accomplishments.
-        </p>
-        <a
-          href="/resume/william-mangaroo-resume.pdf"
-          download
-          class="btn-primary inline-block"
-        >
-          Download Resume (PDF)
-        </a>
+    <!-- Resume CTA -->
+    <section class="mb-20">
+      <div class="card card-glow relative overflow-hidden p-10 md:p-14 text-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-accent/[0.06] via-transparent to-teal/[0.04] pointer-events-none" aria-hidden="true"></div>
+        <div class="relative space-y-5">
+          <h2 class="font-display font-700 text-2xl md:text-3xl text-ink tracking-tight">
+            Want the full picture?
+          </h2>
+          <p class="text-ink-muted text-lg">
+            Download my complete resume with detailed work history and accomplishments.
+          </p>
+          <a
+            href="/resume/william-mangaroo-resume.pdf"
+            download
+            class="btn-primary inline-flex mt-2"
+          >
+            Download Resume
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Testimonials -->
     <section>
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Testimonials</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
         What Others Say
       </h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <blockquote class="card p-6">
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4">
-            "Placeholder for LinkedIn recommendation #1. Visit https://www.linkedin.com/in/william-mangaroo to copy actual recommendations."
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <blockquote class="card p-7 border-l-[3px] border-l-accent">
+          <p class="text-ink-muted italic leading-relaxed mb-5">
+            "Placeholder for LinkedIn recommendation #1. Visit LinkedIn to copy actual recommendations."
           </p>
           <footer class="text-sm">
-            <strong class="text-gray-900 dark:text-white">Name</strong>
-            <span class="text-gray-600 dark:text-gray-400"> · Title at Company</span>
+            <strong class="text-ink font-semibold">Name</strong>
+            <span class="text-ink-faint"> &middot; Title at Company</span>
           </footer>
         </blockquote>
-        <blockquote class="card p-6">
-          <p class="text-gray-700 dark:text-gray-300 italic mb-4">
-            "Placeholder for LinkedIn recommendation #2. Visit https://www.linkedin.com/in/william-mangaroo to copy actual recommendations."
+        <blockquote class="card p-7 border-l-[3px] border-l-teal">
+          <p class="text-ink-muted italic leading-relaxed mb-5">
+            "Placeholder for LinkedIn recommendation #2. Visit LinkedIn to copy actual recommendations."
           </p>
           <footer class="text-sm">
-            <strong class="text-gray-900 dark:text-white">Name</strong>
-            <span class="text-gray-600 dark:text-gray-400"> · Title at Company</span>
+            <strong class="text-ink font-semibold">Name</strong>
+            <span class="text-ink-faint"> &middot; Title at Company</span>
           </footer>
         </blockquote>
       </div>
-      <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-        Note: Replace placeholder testimonials with actual recommendations from <a href="https://www.linkedin.com/in/william-mangaroo" class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+      <p class="mt-5 text-sm text-ink-faint">
+        Replace placeholder testimonials with actual recommendations from
+        <a href="https://www.linkedin.com/in/william-mangaroo" class="text-accent hover:text-accent-light transition-colors" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
       </p>
     </section>
   </div>

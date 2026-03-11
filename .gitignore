@@ -25,3 +25,7 @@ dist/
 # PowerShell transcripts (debugging artifacts)
 PSLogs/
 public/audio/PSLogs/
+
+# Screenshots and test artifacts
+screenshot-*.png
+test-results/

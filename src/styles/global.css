@@ -2,24 +2,43 @@
 @import "tailwindcss";
 
 @layer base {
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Improved text rendering */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0c0c0f;
+    color: #ededef;
   }
 
-  /* Focus visible for keyboard navigation */
+  /* Grain texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* Focus visible */
   :focus-visible {
-    outline: 2px solid theme('colors.primary.DEFAULT');
+    outline: 2px solid #7f5af0;
     outline-offset: 2px;
   }
 
-  /* Screen reader only class */
+  /* Selection */
+  ::selection {
+    background: rgba(127, 90, 240, 0.3);
+    color: #ededef;
+  }
+
+  /* Screen reader only */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -42,102 +61,344 @@
     clip: auto;
     white-space: normal;
   }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0c0c0f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #25252d;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #35353d;
+  }
 }
 
 @layer components {
-  /* Card component */
+  /* ========== Cards ========== */
   .card {
-    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow;
+    background: #16161a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Button primary */
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-glow {
+    position: relative;
+  }
+
+  .card-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(127, 90, 240, 0.4),
+      rgba(44, 182, 125, 0.25),
+      rgba(127, 90, 240, 0.15)
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* ========== Buttons ========== */
   .btn-primary {
-    @apply px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #7f5af0;
+    color: #fff;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
   }
 
-  /* Button secondary/ghost */
+  .btn-primary:hover {
+    background: #6b3fd4;
+    transform: translateY(-1px);
+    box-shadow: 0 0 32px rgba(127, 90, 240, 0.25);
+  }
+
   .btn-ghost {
-    @apply px-6 py-3 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: #ededef;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    text-decoration: none;
   }
 
-  /* Badge/Tag component */
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+  }
+
+  /* ========== Badges ========== */
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .badge-article {
-    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400;
+    background: rgba(127, 90, 240, 0.12);
+    color: #9b7bf7;
+    border: 1px solid rgba(127, 90, 240, 0.2);
   }
 
   .badge-audio {
-    @apply bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-400;
+    background: rgba(44, 182, 125, 0.12);
+    color: #3fc68d;
+    border: 1px solid rgba(44, 182, 125, 0.2);
   }
 
   .badge-video {
-    @apply bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400;
+    background: rgba(255, 107, 107, 0.12);
+    color: #ff8a8a;
+    border: 1px solid rgba(255, 107, 107, 0.2);
   }
 
-  /* Section container */
+  /* ========== Sections ========== */
   .section {
-    @apply py-16 md:py-24;
+    padding: 80px 0;
   }
 
-  /* Content wrapper */
   .content-wrapper {
-    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 32px);
   }
 
-  /* Prose styling for MDX content */
+  /* ========== Prose / Article Content ========== */
   .prose {
-    @apply max-w-prose mx-auto text-gray-700 dark:text-gray-300;
+    max-width: 70ch;
+    margin-inline: auto;
+    color: #94949e;
+    font-size: 1.05rem;
+    line-height: 1.75;
   }
 
   .prose h2 {
-    @apply text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white;
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ededef;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
   }
 
   .prose h3 {
-    @apply text-xl font-bold mt-6 mb-3 text-gray-900 dark:text-white;
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ededef;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
   }
 
   .prose p {
-    @apply my-4 leading-relaxed;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .prose ul,
   .prose ol {
-    @apply my-4 ml-6 space-y-2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 24px;
   }
 
   .prose ul {
-    @apply list-disc;
+    list-style-type: disc;
   }
 
   .prose ol {
-    @apply list-decimal;
+    list-style-type: decimal;
   }
 
   .prose li {
-    @apply leading-relaxed;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+
+  .prose li::marker {
+    color: #7f5af0;
   }
 
   .prose a {
-    @apply text-primary hover:underline;
+    color: #7f5af0;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(127, 90, 240, 0.3);
+    transition: border-color 0.2s ease;
+  }
+
+  .prose a:hover {
+    border-bottom-color: #7f5af0;
   }
 
   .prose code {
-    @apply px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm font-mono;
+    padding: 3px 8px;
+    background: #1e1e24;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+    font-size: 0.88em;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: #9b7bf7;
   }
 
   .prose pre {
-    @apply p-4 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-x-auto my-4;
+    padding: 24px;
+    background: #16161a;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 
   .prose pre code {
-    @apply p-0 bg-transparent;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #ededef;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-primary pl-4 italic my-4 text-gray-600 dark:text-gray-400;
+    border-left: 3px solid #7f5af0;
+    padding-left: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    color: #94949e;
+    font-style: italic;
+    font-size: 1.1rem;
+  }
+
+  .prose strong {
+    color: #ededef;
+    font-weight: 600;
+  }
+
+  .prose hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 48px 0;
+  }
+
+  /* ========== Animations ========== */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* ========== Accent Line ========== */
+  .accent-line {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #7f5af0, #2cb67d);
+    border-radius: 2px;
+  }
+
+  /* ========== Tag chips ========== */
+  .tag {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #94949e;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .tag:hover {
+    color: #ededef;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* ========== Light mode overrides ========== */
+:root[data-theme="light"],
+.light {
+  body {
+    background-color: #fafafa;
+    color: #1a1a2e;
+  }
+
+  .card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .card:hover {
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .prose {
+    color: #4a4a5e;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose strong {
+    color: #1a1a2e;
+  }
+
+  .tag {
+    color: #4a4a5e;
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
   }
 }

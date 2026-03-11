@@ -18,10 +18,10 @@ const badgeClass = {
   video: 'badge-video',
 }[type];
 
-const typeIcon = {
-  article: '📄',
-  audio: '🎧',
-  video: '📹',
+const typeLabel = {
+  article: 'Article',
+  audio: 'Audio',
+  video: 'Video',
 }[type];
 
 const ctaText = {
@@ -31,33 +31,44 @@ const ctaText = {
 }[type];
 ---
 
-<article class="card p-6 hover:-translate-y-1 transition-all">
-  <span class:list={['badge', badgeClass]}>
-    {typeIcon} <span class="ml-1 capitalize">{type}</span>
-  </span>
+<article class="card card-glow p-7 flex flex-col hover:-translate-y-1 transition-all duration-300">
+  <!-- Top row: badge + date -->
+  <div class="flex items-center justify-between">
+    <span class:list={['badge', badgeClass]}>
+      {typeLabel}
+    </span>
+    <time class="text-[12px] font-mono text-ink-faint tracking-wider">
+      {date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}
+    </time>
+  </div>
 
-  <h3 class="mt-4 text-xl font-bold">
-    <a href={`/hot-topics/${slug}`} class="hover:text-primary transition-colors">
+  <!-- Title -->
+  <h3 class="mt-5 font-display font-700 text-xl text-ink tracking-tight leading-snug">
+    <a href={`/hot-topics/${slug}`} class="hover:text-accent transition-colors duration-200">
       {title}
     </a>
   </h3>
 
-  <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-    {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+  <!-- Summary -->
+  <p class="mt-3 text-ink-muted text-[15px] leading-relaxed line-clamp-3 flex-1">
+    {summary}
   </p>
 
-  <p class="mt-3 text-gray-600 dark:text-gray-400 line-clamp-3">{summary}</p>
-
-  <div class="mt-4 flex flex-wrap gap-2">
+  <!-- Tags -->
+  <div class="mt-5 flex flex-wrap gap-2">
     {tags.slice(0, 3).map((tag) => (
-      <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded">{tag}</span>
+      <span class="tag">{tag}</span>
     ))}
   </div>
 
-  <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-    <a href={`/hot-topics/${slug}`} class="inline-flex items-center text-sm font-medium text-primary hover:underline">
+  <!-- CTA -->
+  <div class="mt-5 pt-5 border-t border-ink-ghost">
+    <a
+      href={`/hot-topics/${slug}`}
+      class="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-light transition-colors group"
+    >
       {ctaText}
-      <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
     </a>
