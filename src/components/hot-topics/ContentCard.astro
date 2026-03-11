@@ -1,0 +1,65 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  type: 'article' | 'audio' | 'video';
+  date: Date;
+  summary: string;
+  tags: string[];
+  duration?: string;
+  readTime?: string;
+}
+
+const { slug, title, type, date, summary, tags, duration, readTime } = Astro.props;
+
+const badgeClass = {
+  article: 'badge-article',
+  audio: 'badge-audio',
+  video: 'badge-video',
+}[type];
+
+const typeIcon = {
+  article: '📄',
+  audio: '🎧',
+  video: '📹',
+}[type];
+
+const ctaText = {
+  article: `Read article${readTime ? ` · ${readTime}` : ''}`,
+  audio: `Listen${duration ? ` · ${duration}` : ''}`,
+  video: `Watch${duration ? ` · ${duration}` : ''}`,
+}[type];
+---
+
+<article class="card p-6 hover:-translate-y-1 transition-all">
+  <span class:list={['badge', badgeClass]}>
+    {typeIcon} <span class="ml-1 capitalize">{type}</span>
+  </span>
+
+  <h3 class="mt-4 text-xl font-bold">
+    <a href={`/hot-topics/${slug}`} class="hover:text-primary transition-colors">
+      {title}
+    </a>
+  </h3>
+
+  <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+    {date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+  </p>
+
+  <p class="mt-3 text-gray-600 dark:text-gray-400 line-clamp-3">{summary}</p>
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    {tags.slice(0, 3).map((tag) => (
+      <span class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded">{tag}</span>
+    ))}
+  </div>
+
+  <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
+    <a href={`/hot-topics/${slug}`} class="inline-flex items-center text-sm font-medium text-primary hover:underline">
+      {ctaText}
+      <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</article>

@@ -105,6 +105,27 @@
   - Updated homepage to use Hero component
 - **Notes:** Image optimization working perfectly, generated 4 responsive sizes
 
+### ✅ Task 3.2: Create Featured Content Component
+- **Commit:** a6b961d
+- **Status:** Complete
+- **What was built:**
+  - FeaturedContent component querying content collection
+  - Displays 3 most recent featured items
+  - Type badges (article/audio/video) with emojis
+  - Tags and summaries with line-clamp
+  - Links to individual content pages
+- **Notes:** Using Tailwind v4 built-in line-clamp utility
+
+### ✅ Task 3.3: Create Value Propositions Component
+- **Commit:** 76f695a
+- **Status:** Complete
+- **What was built:**
+  - ValueProps component with 3 value pillars
+  - Product Thinking, Execution, Results cards
+  - CTA card with gradients and buttons
+  - Complete homepage layout
+- **Notes:** Chunk 3 complete - full homepage functional
+
 ---
 
 ## In Progress
@@ -113,7 +134,7 @@ None
 
 ---
 
-## Remaining Tasks (8 total)
+## Remaining Tasks (6 total)
 
 ### Chunk 1: Project Foundation
 ✅ Complete (3/3 tasks)
@@ -121,9 +142,8 @@ None
 ### Chunk 2: Content Collection System
 ✅ Complete (5/5 tasks - resume PDF pending manual conversion)
 
-### Chunk 3: Homepage (2 remaining)
-- [ ] Task 3.2: Create Featured Content Component
-- [ ] Task 3.3: Create Value Propositions Component
+### Chunk 3: Homepage
+✅ Complete (3/3 tasks)
 
 ### Chunk 3: Homepage (3 tasks)
 - [ ] Task 3.1: Create Hero Component
@@ -169,24 +189,21 @@ None
 
 ### Session 1 (2026-03-10)
 - Created git worktree
-- Completed Task 1.1 (Astro + Tailwind setup)
-- Completed Task 1.2 (Base Layout, Header, Footer, Theme Toggle)
-  - Fixed 2 Important issues in code review
-- Completed Task 1.3 (Global Styles and Utilities)
-  - Fixed 2 spec compliance issues
-  - Code review approved with non-blocking recommendations
-- **Chunk 1 complete** (3/3 tasks)
-- Completed Task 2.1 (Configure Content Collections)
-  - Adapted for Astro 6.x breaking changes
-- Completed Task 2.2 (Migrate Priority Conflicts Article)
-- Completed Task 2.3 (Migrate RICE Audio Content)
-  - Fixed PROGRESS.md duplicate entry
-- Completed Task 2.4 (Migrate Why Stakeholders Ghost Content)
-  - Fixed critical security issue (removed PowerShell logs)
-- Completed Task 2.5 (Copy Hero Image and Resume)
-  - Hero image copied (646KB)
-  - Resume PDF pending manual conversion
-- **Chunk 2 complete** (5/5 tasks)
-- **Total: 8 tasks complete, 9 remaining**
-- Token usage: ~120k/200k (~80k remaining)
-- Next: Chunk 3 (Homepage components)
+- **Chunk 1 complete** (3/3 tasks):
+  - Task 1.1: Astro 6.x + Tailwind CSS v4 setup
+  - Task 1.2: Base Layout (Header, Footer, Theme Toggle)
+  - Task 1.3: Global styles and utilities
+- **Chunk 2 complete** (5/5 tasks):
+  - Task 2.1: Content collections with Zod validation
+  - Task 2.2: Priority Conflicts article
+  - Task 2.3: RICE audio (14MB)
+  - Task 2.4: Stakeholders Ghost audio (29MB) + security fix
+  - Task 2.5: Hero image (646KB) + assets structure
+- **Chunk 3 complete** (3/3 tasks):
+  - Task 3.1: Hero component with image optimization
+  - Task 3.2: Featured content display (3 items)
+  - Task 3.3: Value propositions + CTA
+- **Total: 11 tasks complete, 6 remaining**
+- **Status: 3 full chunks complete, homepage fully functional**
+- Token usage: ~141k/200k (~59k remaining)
+- Next: Chunk 4 (Hot Topics Pages) or Chunk 5 (About/Contact)

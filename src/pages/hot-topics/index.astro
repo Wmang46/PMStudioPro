@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ContentCard from '@components/hot-topics/ContentCard.astro';
+import { getCollection } from 'astro:content';
+
+const allContent = await getCollection('hot-topics');
+const sortedContent = allContent.sort((a, b) =>
+  b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout
+  title="Hot Topics | Will Mangaroo"
+  description="PM insights, frameworks, and real-world scenarios. Articles, audio, and video content on product management."
+>
+  <div class="content-wrapper py-12">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Hot Topics</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        PM insights, frameworks, and real-world scenarios
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedContent.map((item) => (
+        <ContentCard
+          slug={item.slug}
+          title={item.data.title}
+          type={item.data.type}
+          date={item.data.date}
+          summary={item.data.summary}
+          tags={item.data.tags}
+          duration={item.data.duration}
+          readTime={item.data.readTime}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
