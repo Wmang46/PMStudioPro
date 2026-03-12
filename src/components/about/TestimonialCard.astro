@@ -1,0 +1,31 @@
+---
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  class?: string;
+}
+
+const { quote, name, role, company, class: className = '' } = Astro.props;
+---
+
+<div class:list={["card card-glow p-7 relative", className]}>
+  <!-- Decorative quotation mark -->
+  <span class="absolute top-4 right-6 text-5xl font-display text-accent/15 leading-none select-none pointer-events-none" aria-hidden="true">&ldquo;</span>
+
+  <blockquote class="relative">
+    <p class="text-ink-muted text-[15px] leading-relaxed italic pr-8">
+      &ldquo;{quote}&rdquo;
+    </p>
+    <footer class="mt-5 flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full bg-gradient-to-br from-accent/40 to-teal/30 flex items-center justify-center text-[13px] font-semibold text-ink">
+        {name.split(' ').map(n => n[0]).join('')}
+      </div>
+      <div>
+        <cite class="not-italic text-sm font-semibold text-ink block">{name}</cite>
+        <span class="text-[13px] text-ink-faint">{role}, {company}</span>
+      </div>
+    </footer>
+  </blockquote>
+</div>

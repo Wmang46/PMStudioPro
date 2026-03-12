@@ -1,7 +1,23 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
+import TestimonialCard from '@components/about/TestimonialCard.astro';
 import { projects } from '@/data/projects';
 import { skillCategories } from '@/data/skills';
+
+const testimonials = [
+  {
+    quote: "I've had the privilege of working with William for many years, and he is truly one of the strongest Business Analysts I've worked with. He has an exceptional ability to break down complex problems, ask the right questions, and turn ideas into clear, actionable solutions. William consistently brings insight, professionalism, and strong collaboration to every project.",
+    name: "Caroline Jeter",
+    role: "Branch Services Director",
+    company: "Woodforest National Bank",
+  },
+  {
+    quote: "I have been working with William since February 2020 and I cannot say enough about his dedication and work performance. He is the first one to come into the office and the last one to leave. He is very professional with his line of business and goes out his way to help. I would recommend William, as he would be a great asset to any company.",
+    name: "Shakil Zaman",
+    role: "IT Consulting Services",
+    company: "Woodforest National Bank",
+  },
+];
 ---
 
 <BaseLayout
@@ -226,6 +242,29 @@ import { skillCategories } from '@/data/skills';
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mb-20">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="accent-line"></div>
+        <span class="font-mono text-[13px] text-accent tracking-wider uppercase">Testimonials</span>
+      </div>
+      <h2 class="font-display font-700 text-3xl text-ink tracking-tight mb-10">
+        What Colleagues Say
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {testimonials.map((t, i) => (
+          <TestimonialCard
+            quote={t.quote}
+            name={t.name}
+            role={t.role}
+            company={t.company}
+            class={`animate-fade-up stagger-${i + 1}`}
+          />
+        ))}
       </div>
     </section>
 

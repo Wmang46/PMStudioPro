@@ -63,6 +63,7 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-out both',
         'slide-in': 'slideIn 0.6s ease-out both',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+        'shimmer': 'shimmer 3s linear infinite',
       },
       keyframes: {
         fadeUp: {
@@ -80,6 +81,10 @@ export default {
         glowPulse: {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.8' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
         },
       },
     },

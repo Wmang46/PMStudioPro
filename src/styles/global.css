@@ -89,8 +89,9 @@
   }
 
   .card:hover {
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(127, 90, 240, 0.18);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(127, 90, 240, 0.06);
+    transform: translateY(-2px);
   }
 
   .card-glow {
@@ -144,7 +145,7 @@
   .btn-primary:hover {
     background: #6b3fd4;
     transform: translateY(-1px);
-    box-shadow: 0 0 32px rgba(127, 90, 240, 0.25);
+    box-shadow: 0 0 32px rgba(127, 90, 240, 0.25), 0 0 60px rgba(127, 90, 240, 0.12);
   }
 
   .btn-ghost {
