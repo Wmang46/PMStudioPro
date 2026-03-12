@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import pmLogo from '@assets/images/pm-logo.jpeg';
+
 const currentPath = Astro.url.pathname;
 ---
 
@@ -7,11 +10,14 @@ const currentPath = Astro.url.pathname;
     <div class="flex items-center justify-between h-[68px]">
       <!-- Brand -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="relative w-9 h-9 rounded-[10px] overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-accent to-teal opacity-90 group-hover:opacity-100 transition-opacity"></div>
-          <div class="absolute inset-[3px] rounded-[7px] bg-surface-deep/40"></div>
-          <div class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent"></div>
-        </div>
+        <Image
+          src={pmLogo}
+          alt="PM Studio Pro logo"
+          width={36}
+          height={36}
+          class="w-9 h-9 rounded-[10px] object-cover"
+          loading="eager"
+        />
         <div class="flex items-baseline gap-2">
           <span class="font-display font-700 text-ink tracking-tight">Will Mangaroo</span>
           <span class="hidden sm:block text-[13px] text-ink-faint font-mono tracking-wide uppercase">PM</span>
