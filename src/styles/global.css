@@ -380,37 +380,50 @@
 }
 
 /* ========== Light mode overrides ========== */
-:root[data-theme="light"],
-.light {
-  body {
-    background-color: #fafafa;
-    color: #1a1a2e;
-  }
+.light body {
+  background-color: #fafafa;
+  color: #1a1a2e;
+}
 
-  .card {
-    background: #ffffff;
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  }
+.light .card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
 
-  .card:hover {
-    border-color: rgba(0, 0, 0, 0.12);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
-  }
+.light .card:hover {
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
 
-  .prose {
-    color: #4a4a5e;
-  }
+.light .prose {
+  color: #4a4a5e;
+}
 
-  .prose h2,
-  .prose h3,
-  .prose strong {
-    color: #1a1a2e;
-  }
+.light .prose h2,
+.light .prose h3,
+.light .prose strong {
+  color: #1a1a2e;
+}
 
-  .tag {
-    color: #4a4a5e;
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.08);
-  }
+.light .tag {
+  color: #4a4a5e;
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light body::before {
+  opacity: 0.02;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
 }
