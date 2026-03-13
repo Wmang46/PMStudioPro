@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 
 <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-6">
   <!-- Gradient mask — blocks scrolled content from showing above/behind the nav pill -->
-  <div class="absolute inset-x-0 top-0 h-[160px] pointer-events-none -z-10" style="background: linear-gradient(to bottom, #08090d 0%, #08090d 65%, rgba(8,9,13,0.92) 80%, rgba(8,9,13,0.5) 92%, transparent 100%);" aria-hidden="true"></div>
+  <div class="absolute inset-x-0 top-0 h-[160px] pointer-events-none -z-10 header-gradient" aria-hidden="true"></div>
   <div class="max-w-content mx-auto">
     <!-- Glass pill container -->
     <div class="flex items-center justify-between h-[56px] px-5 rounded-[20px] backdrop-blur-xl bg-surface-raised/60 border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
