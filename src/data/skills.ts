@@ -55,6 +55,7 @@ export const skillCategories: SkillCategory[] = [
       "API Strategy & Integration",
       "Platform Architecture Decisions",
       "Azure DevOps",
+      "Jira",
       "Data-driven Decision Making",
       "KPI Dashboards & Reporting"
     ]
