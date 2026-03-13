@@ -7,9 +7,10 @@ export default {
       colors: {
         surface: {
           DEFAULT: '#16161a',
-          deep: '#0c0c0f',
+          deep: '#08090d',
           raised: '#1e1e24',
           hover: '#25252d',
+          atmosphere: '#08090d',
         },
         accent: {
           DEFAULT: '#7f5af0',
@@ -64,6 +65,9 @@ export default {
         'slide-in': 'slideIn 0.6s ease-out both',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
         'shimmer': 'shimmer 3s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float 8s ease-in-out infinite',
+        'float-slower': 'float 10s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
@@ -85,6 +89,10 @@ export default {
         shimmer: {
           '0%': { backgroundPosition: '200% 0' },
           '100%': { backgroundPosition: '-200% 0' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-12px) rotate(3deg)' },
         },
       },
     },

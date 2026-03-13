@@ -9,7 +9,7 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #0c0c0f;
+    background-color: #08090d;
     color: #ededef;
   }
 
@@ -67,7 +67,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0c0c0f;
+    background: #08090d;
   }
   ::-webkit-scrollbar-thumb {
     background: #25252d;
@@ -84,13 +84,13 @@
     background: #16161a;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 12px rgba(127, 90, 240, 0.03);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .card:hover {
-    border-color: rgba(127, 90, 240, 0.18);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(127, 90, 240, 0.06);
+    border-color: rgba(127, 90, 240, 0.22);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(127, 90, 240, 0.1), 0 0 60px rgba(127, 90, 240, 0.05);
     transform: translateY(-2px);
   }
 
@@ -137,6 +137,7 @@
     letter-spacing: 0.01em;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(127, 90, 240, 0.15), 0 0 40px rgba(127, 90, 240, 0.06);
     transition: all 0.25s ease;
     cursor: pointer;
     text-decoration: none;
@@ -145,7 +146,7 @@
   .btn-primary:hover {
     background: #6b3fd4;
     transform: translateY(-1px);
-    box-shadow: 0 0 32px rgba(127, 90, 240, 0.25), 0 0 60px rgba(127, 90, 240, 0.12);
+    box-shadow: 0 0 32px rgba(127, 90, 240, 0.35), 0 0 60px rgba(127, 90, 240, 0.18);
   }
 
   .btn-ghost {
@@ -162,6 +163,7 @@
     letter-spacing: 0.01em;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
     transition: all 0.25s ease;
     cursor: pointer;
     text-decoration: none;
@@ -365,6 +367,15 @@
     color: #ededef;
     border-color: rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* ========== Floating geometric shapes ========== */
+  .floating-shape {
+    position: absolute;
+    border: 1px solid rgba(127, 90, 240, 0.08);
+    background: rgba(127, 90, 240, 0.02);
+    border-radius: 4px;
+    pointer-events: none;
   }
 }
 

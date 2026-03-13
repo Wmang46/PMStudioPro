@@ -5,64 +5,63 @@ import pmLogo from '@assets/images/pm-logo.png';
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 border-b border-ink-ghost backdrop-blur-xl bg-surface-deep/70">
-  <div class="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-[68px]">
-      <!-- Brand -->
-      <a href="/" class="flex items-center gap-3 group">
+<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-6">
+  <!-- Gradient mask — blocks scrolled content from showing above/behind the nav pill -->
+  <div class="absolute inset-x-0 top-0 h-[160px] pointer-events-none -z-10" style="background: linear-gradient(to bottom, #08090d 0%, #08090d 65%, rgba(8,9,13,0.92) 80%, rgba(8,9,13,0.5) 92%, transparent 100%);" aria-hidden="true"></div>
+  <div class="max-w-content mx-auto">
+    <!-- Glass pill container -->
+    <div class="flex items-center justify-between h-[56px] px-5 rounded-[20px] backdrop-blur-xl bg-surface-raised/60 border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+
+      <!-- Brand (left) -->
+      <a href="/" class="flex items-center gap-2.5 group shrink-0">
         <Image
           src={pmLogo}
           alt="PM Studio Pro logo"
-          width={36}
-          height={36}
-          class="w-9 h-9 rounded-[10px] object-cover"
+          width={32}
+          height={32}
+          class="w-8 h-8 rounded-[8px] object-cover"
           loading="eager"
         />
-        <div class="flex items-baseline gap-2">
-          <span class="font-display font-700 text-ink tracking-tight">Will Mangaroo</span>
-          <span class="hidden sm:block text-[13px] text-ink-faint font-mono tracking-wide uppercase">PM</span>
-        </div>
+        <span class="font-display font-700 text-ink text-[15px] tracking-tight">Will Mangaroo</span>
       </a>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center gap-1" aria-label="Primary navigation">
+      <!-- Nav links (center) -->
+      <nav class="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
         <a
           href="/hot-topics"
           class:list={[
-            'relative px-4 py-2 text-[14px] font-medium rounded-btn transition-all duration-200',
+            'px-4 py-1.5 text-[13px] font-medium rounded-pill transition-all duration-200',
             currentPath.startsWith('/hot-topics')
               ? 'text-accent bg-accent/10'
-              : 'text-ink-muted hover:text-ink hover:bg-white/[0.04]'
+              : 'text-ink-muted hover:text-ink hover:bg-white/[0.06]'
           ]}
           aria-current={currentPath.startsWith('/hot-topics') ? 'page' : undefined}
         >
           Hot Topics
-          {currentPath.startsWith('/hot-topics') && (
-            <span class="absolute bottom-0 left-4 right-4 h-[2px] bg-accent rounded-full" aria-hidden="true"></span>
-          )}
         </a>
         <a
           href="/about"
           class:list={[
-            'relative px-4 py-2 text-[14px] font-medium rounded-btn transition-all duration-200',
+            'px-4 py-1.5 text-[13px] font-medium rounded-pill transition-all duration-200',
             currentPath === '/about' || currentPath === '/about/'
               ? 'text-accent bg-accent/10'
-              : 'text-ink-muted hover:text-ink hover:bg-white/[0.04]'
+              : 'text-ink-muted hover:text-ink hover:bg-white/[0.06]'
           ]}
           aria-current={currentPath === '/about' || currentPath === '/about/' ? 'page' : undefined}
         >
           About
-          {(currentPath === '/about' || currentPath === '/about/') && (
-            <span class="absolute bottom-0 left-4 right-4 h-[2px] bg-accent rounded-full" aria-hidden="true"></span>
-          )}
         </a>
+      </nav>
+
+      <!-- CTA + theme toggle (right) -->
+      <div class="hidden md:flex items-center gap-2 shrink-0">
         <a
           href="/contact"
           class:list={[
-            'ml-2 px-5 py-2 text-[14px] font-semibold rounded-btn border transition-all duration-200',
+            'px-4 py-1.5 text-[13px] font-semibold rounded-pill border transition-all duration-200',
             currentPath === '/contact' || currentPath === '/contact/'
               ? 'text-accent border-accent/40 bg-accent/10'
-              : 'text-ink border-ink-ghost hover:border-ink-faint hover:bg-white/[0.03]'
+              : 'text-ink border-white/[0.1] hover:border-white/[0.2] hover:bg-white/[0.04]'
           ]}
           aria-current={currentPath === '/contact' || currentPath === '/contact/' ? 'page' : undefined}
         >
@@ -73,22 +72,22 @@ const currentPath = Astro.url.pathname;
         <button
           id="themeToggle"
           type="button"
-          class="ml-3 p-2.5 text-ink-faint hover:text-ink-muted rounded-btn hover:bg-white/[0.04] transition-colors"
+          class="p-2 text-ink-faint hover:text-ink-muted rounded-pill hover:bg-white/[0.06] transition-colors"
           aria-label="Toggle theme"
           title="Toggle theme"
         >
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-[16px] h-[16px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path class="dark:hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             <path class="hidden dark:block" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
-      </nav>
+      </div>
 
       <!-- Mobile menu button -->
       <button
         id="mobileMenuBtn"
         type="button"
-        class="md:hidden p-2 text-ink-muted hover:text-ink rounded-btn hover:bg-white/[0.04] transition-colors"
+        class="md:hidden p-2 text-ink-muted hover:text-ink rounded-pill hover:bg-white/[0.06] transition-colors"
         aria-label="Open menu"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,41 +95,44 @@ const currentPath = Astro.url.pathname;
         </svg>
       </button>
     </div>
-  </div>
 
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-ink-ghost bg-surface-deep/95 backdrop-blur-xl">
-    <nav class="max-w-content mx-auto px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
-      <a
-        href="/hot-topics"
-        class:list={[
-          'px-4 py-3 text-sm font-medium rounded-btn transition-colors',
-          currentPath.startsWith('/hot-topics') ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.04]'
-        ]}
-      >
-        Hot Topics
-      </a>
-      <a
-        href="/about"
-        class:list={[
-          'px-4 py-3 text-sm font-medium rounded-btn transition-colors',
-          currentPath === '/about' || currentPath === '/about/' ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.04]'
-        ]}
-      >
-        About
-      </a>
-      <a
-        href="/contact"
-        class:list={[
-          'px-4 py-3 text-sm font-medium rounded-btn transition-colors',
-          currentPath === '/contact' || currentPath === '/contact/' ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.04]'
-        ]}
-      >
-        Contact
-      </a>
-    </nav>
+    <!-- Mobile dropdown (floating glass) -->
+    <div id="mobileMenu" class="hidden md:hidden mt-2 rounded-[16px] backdrop-blur-xl bg-surface-raised/70 border border-white/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.3)] overflow-hidden">
+      <nav class="px-3 py-3 flex flex-col gap-1" aria-label="Mobile navigation">
+        <a
+          href="/hot-topics"
+          class:list={[
+            'px-4 py-2.5 text-sm font-medium rounded-[12px] transition-colors',
+            currentPath.startsWith('/hot-topics') ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.06]'
+          ]}
+        >
+          Hot Topics
+        </a>
+        <a
+          href="/about"
+          class:list={[
+            'px-4 py-2.5 text-sm font-medium rounded-[12px] transition-colors',
+            currentPath === '/about' || currentPath === '/about/' ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.06]'
+          ]}
+        >
+          About
+        </a>
+        <a
+          href="/contact"
+          class:list={[
+            'px-4 py-2.5 text-sm font-medium rounded-[12px] transition-colors',
+            currentPath === '/contact' || currentPath === '/contact/' ? 'text-accent bg-accent/10' : 'text-ink-muted hover:text-ink hover:bg-white/[0.06]'
+          ]}
+        >
+          Contact
+        </a>
+      </nav>
+    </div>
   </div>
 </header>
+
+<!-- Spacer to offset content below fixed header -->
+<div class="h-[92px]"></div>
 
 <script>
   const btn = document.getElementById('mobileMenuBtn');

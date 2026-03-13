@@ -29,3 +29,21 @@ public/audio/PSLogs/
 # Screenshots and test artifacts
 screenshot-*.png
 test-results/
+
+# Claude Code and WAT framework temporary files
+.claude/
+.tmp/
+
+# Reference materials and backups
+Assets/
+backup-extracted/
+nul
+PMimage.png
+WebStyle.PNG
+references.PNG
+textblocked.PNG
+setup.ps1
+
+# Google OAuth credentials
+credentials.json
+token.json
