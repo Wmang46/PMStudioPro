@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     title: "Digital Banking Product Portfolio",
     company: "Woodforest National Bank",
-    role: "Product Manager",
+    role: "Senior Business Analyst (Product Manager responsibilities)",
     timeline: "Mar 2018 – Oct 2025",
     description: "Owned product roadmap and backlog prioritization across six banking products spanning IVR, fraud prevention, and digital channels. Drove discovery, defined OKRs, and led cross-functional delivery from ideation through launch.",
     outcomes: [
