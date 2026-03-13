@@ -32,7 +32,7 @@ export const projects: Project[] = [
     company: "Woodforest National Bank",
     role: "Senior Business Analyst / Product Owner",
     timeline: "May 2007 – Mar 2018",
-    description: "Led product strategy for an end-to-end FIS core banking migration and owned the vision, design, and launch of a new Customer Information System — a greenfield product that replaced expensive core licensing with a lightweight, purpose-built solution for 500+ daily branch users.",
+    description: "Led product strategy for an end-to-end FIS core banking migration and owned the vision, design, and launch of a new Customer Information System, a greenfield product that replaced expensive core licensing with a lightweight, purpose-built solution for 500+ daily branch users.",
     outcomes: [
       "Shipped a zero-to-one product (CIS) that improved transaction processing time by 33% and eliminated core licensing dependency",
       "Migrated 500K+ accounts with 99.9% data accuracy by defining acceptance criteria and orchestrating cross-functional delivery",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     company: "NEC Display Solutions of America",
     role: "Business Analyst / Product Lead",
     timeline: "Sep 2004 – May 2006",
-    description: "Sole product lead on a competitive-bid engagement to define, design, and deliver a manager-facing mobile product for 7-Eleven — enabling real-time inventory visibility, sales velocity analysis, and data-driven purchasing decisions on the sales floor.",
+    description: "Sole product lead on a competitive-bid engagement to define, design, and deliver a manager-facing mobile product for 7-Eleven, enabling real-time inventory visibility, sales velocity analysis, and data-driven purchasing decisions on the sales floor.",
     outcomes: [
       "Drove 26% profit increase through new supply chain workflows and data-driven ordering features",
       "Achieved 45% user adoption by defining intuitive UX patterns, onboarding flows, and training materials",
