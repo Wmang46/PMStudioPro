@@ -184,10 +184,18 @@ import heroImage from '@assets/images/hero.jpg';
   }
 
   // --- Configuration ---
-  const COLORS = ["#7f5af0", "#6b3fd4", "#9b7bf7", "#2cb67d", "#7f5af0"];
-  const BG_FILL = "#08090d";
+  function getThemeColors() {
+    const isLight = document.documentElement.classList.contains('light');
+    return {
+      colors: isLight
+        ? ["#7f5af0", "#6b3fd4", "#9b7bf7", "#2cb67d", "#7f5af0"]
+        : ["#7f5af0", "#6b3fd4", "#9b7bf7", "#2cb67d", "#7f5af0"],
+      bgFill: isLight ? "#fafafa" : "#08090d",
+      waveOpacity: isLight ? 0.3 : 0.5
+    };
+  }
+
   const WAVE_WIDTH = 50;
-  const WAVE_OPACITY = 0.5;
   const BLUR = 10;
   const SPEED = 0.001;
 
@@ -209,13 +217,13 @@ import heroImage from '@assets/images/hero.jpg';
       canvas.style.height = h + "px";
     }
 
-    function drawWave(n) {
+    function drawWave(n, colors, opacity) {
       nt += SPEED;
       for (let i = 0; i < n; i++) {
         ctx.beginPath();
         ctx.lineWidth = WAVE_WIDTH;
-        ctx.globalAlpha = WAVE_OPACITY;
-        ctx.strokeStyle = COLORS[i % COLORS.length];
+        ctx.globalAlpha = opacity;
+        ctx.strokeStyle = colors[i % colors.length];
         for (let x = 0; x < w; x += 5) {
           const y = noise(x / 800, 0.3 * i, nt) * 100;
           ctx.lineTo(x, y + h * 0.5);
@@ -226,14 +234,15 @@ import heroImage from '@assets/images/hero.jpg';
     }
 
     function render() {
+      const theme = getThemeColors();
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = BG_FILL;
+      ctx.fillStyle = theme.bgFill;
       ctx.globalAlpha = 1;
       ctx.fillRect(0, 0, w, h);
 
       // Apply blur via filter
       ctx.filter = `blur(${BLUR}px)`;
-      drawWave(5);
+      drawWave(5, theme.colors, theme.waveOpacity);
       ctx.filter = "none";
 
       animId = requestAnimationFrame(render);
@@ -246,5 +255,14 @@ import heroImage from '@assets/images/hero.jpg';
       resize();
       render();
     });
+
+    // Listen for theme changes
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        // Theme will update on next render frame automatically
+        // since render() calls getThemeColors() each frame
+      });
+    }
   }
 </script>
