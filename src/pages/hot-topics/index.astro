@@ -113,11 +113,12 @@ const sortedContent = allContent.sort((a, b) =>
       const tags = card.dataset.tags ?? '';
 
       const matchesType = activeType === 'all' || type === activeType;
+      const tagList = tags.split(',');
       const matchesSearch =
         searchQuery === '' ||
         title.includes(searchQuery) ||
         summary.includes(searchQuery) ||
-        tags.includes(searchQuery);
+        tagList.some((t) => t.includes(searchQuery));
 
       if (matchesType && matchesSearch) {
         card.classList.remove('hidden');
