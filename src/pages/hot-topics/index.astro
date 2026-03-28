@@ -29,9 +29,16 @@ const sortedContent = allContent.sort((a, b) =>
     </header>
 
     <!-- Content Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="content-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {sortedContent.map((item, i) => (
-        <div class={`animate-fade-up stagger-${Math.min(i + 1, 6)}`}>
+        <div
+          class={`animate-fade-up stagger-${Math.min(i + 1, 6)}`}
+          data-card
+          data-type={item.data.type}
+          data-title={item.data.title.toLowerCase()}
+          data-summary={item.data.summary.toLowerCase()}
+          data-tags={item.data.tags.map((t: string) => t.toLowerCase()).join(',')}
+        >
           <ContentCard
             slug={item.id}
             title={item.data.title}
