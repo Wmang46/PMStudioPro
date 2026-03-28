@@ -93,4 +93,79 @@ const sortedContent = allContent.sort((a, b) =>
       ))}
     </div>
   </div>
+
+<script>
+  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-card]');
+  const emptyState = document.getElementById('empty-state');
+
+  let activeType = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const type = card.dataset.type ?? '';
+      const title = card.dataset.title ?? '';
+      const summary = card.dataset.summary ?? '';
+      const tags = card.dataset.tags ?? '';
+
+      const matchesType = activeType === 'all' || type === activeType;
+      const matchesSearch =
+        searchQuery === '' ||
+        title.includes(searchQuery) ||
+        summary.includes(searchQuery) ||
+        tags.includes(searchQuery);
+
+      if (matchesType && matchesSearch) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (emptyState) {
+      emptyState.classList.toggle('hidden', visibleCount > 0);
+    }
+  }
+
+  // Search input
+  searchInput?.addEventListener('input', () => {
+    searchQuery = searchInput.value.toLowerCase().trim();
+    applyFilters();
+  });
+
+  // Type filter buttons
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeType = btn.dataset.filter ?? 'all';
+
+      filterButtons.forEach((b) => {
+        b.classList.remove('badge-active', 'bg-[#7f5af0]', 'text-white', 'border-[#7f5af0]');
+        b.classList.add('text-ink-muted', 'bg-transparent', 'border-white/10');
+      });
+
+      btn.classList.add('badge-active', 'bg-[#7f5af0]', 'text-white', 'border-[#7f5af0]');
+      btn.classList.remove('text-ink-muted', 'bg-transparent', 'border-white/10');
+
+      applyFilters();
+    });
+  });
+
+  // Tag clicks — delegated from the grid
+  document.getElementById('content-grid')?.addEventListener('click', (e) => {
+    const tag = (e.target as HTMLElement).closest('.tag');
+    if (!tag) return;
+    const tagText = tag.textContent?.toLowerCase().trim() ?? '';
+    if (searchInput) {
+      searchInput.value = tagText;
+      searchQuery = tagText;
+      applyFilters();
+      searchInput.focus();
+    }
+  });
+</script>
 </BaseLayout>
